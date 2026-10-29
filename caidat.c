@@ -91,8 +91,8 @@ void find_student_by_name(SinhVien *ds, int n, char tuKhoa[]) {
     for (int i = 0; i < n; i++) {
        // tim kiem khong phan biet chữ hoa và chu thuong
         if (strcasestr(ds[i].hoTen, tuKhoa) != NULL) {
-            printf("Ma SV: %s | Ho ten: %s | Diem QT: %.2f | Diem thi: %.2f\n",
-                   ds[i].maSV, ds[i].hoTen, ds[i].diemQuaTrinh, ds[i].diemThi);
+            printf("Ma SV: %s | Ho ten: %s | Diem GK: %.2f | Diem CK: %.2f\n",
+                      ds[i].maSV, ds[i].hoTen, ds[i].diemGK, ds[i].diemCK);
             dem++;
         }
     }
