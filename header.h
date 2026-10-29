@@ -1,12 +1,12 @@
 // ==========================================================
 // PHAN CUA PHAM THAO VY: Khai bao Struct va Prototype
 // ==========================================================
-#ifndef STUDENT_H
-#define STUDENT_H
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+#ifndef STUDENT_H
+#define STUDENT_H
 // struct luu tru sinh vien
 typedef struct SinhVien {
     char maSV[11];       
