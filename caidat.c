@@ -82,13 +82,13 @@ SinhVien inputOneStudent(DanhSachSinhVien *list) {
 // ==========================================================
 // PHAN CUA NGUYEN Chi Bao: Ham tim kiem theo ten sinh vien
 // ==========================================================
-// 2. Hàm find_student_by_name(): Tìm kiếm theo chuỗi Họ tên (dùng hàm strstr)
+//  tim kiem theo hoten 
 void find_student_by_name(SinhVien *ds, int n, char tuKhoa[]) {
     int dem = 0;
     printf("\n--- KET QUA TIM KIEM THEO TEN (%s) ---\n", tuKhoa);
     
     for (int i = 0; i < n; i++) {
-       // Dùng strcasestr nếu muốn tìm kiếm không phân biệt hoa/thường (strstr sẽ ko phân biệt dc)
+       // tim kiem khong phan biet chữ hoa và chu thuong
         if (strcasestr(ds[i].hoTen, tuKhoa) != NULL) {
             printf("Ma SV: %s | Ho ten: %s | Diem QT: %.2f | Diem thi: %.2f\n",
                    ds[i].maSV, ds[i].hoTen, ds[i].diemQuaTrinh, ds[i].diemThi);
