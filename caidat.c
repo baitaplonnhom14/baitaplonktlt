@@ -172,19 +172,32 @@ void suaThongTinSinhVien(SinhVien ds[], int n) {
 // ==========================================================
 / Ham xoa 
 void xoaSinhVien(DanhSachSinhVien *list) {
-    char maXoa[20]; int vt = -1;
-    printf("Nhap ma can xoa: "); scanf("%s", maXoa);
+    char maXoa[20]; 
+    int vt = -1;
+printf("Nhap ma can xoa: "); 
+    scanf("%s", maXoa);
+    clearInputBuffer();
+
     for (int i = 0; i < list->size; i++) {
-        if (strcmp(list->data[i].maSV, maXoa) == 0) { vt = i; break; }
+        if (strcmp(list->data[i].maSV, maXoa) == 0) { 
+            vt = i; 
+            break; 
+        }
     }
-    if (vt == -1) printf("Khong tim thay!\n");
-    else {
-        for (int i = vt; i < list->size - 1; i++) danhSach[i] = danhSach[i + 1];
-        (*n)--; printf("Xoa thanh cong!\n");
+
+    if (vt == -1) {
+        printf("Khong tim thay!\n");
+    } else {
+      
+        for (int i = vt; i < list->size - 1; i++) {
+            list->data[i] = list->data[i + 1];
+        }
+        (list->size)--; 
+        printf("Xoa thanh cong!\n");
     }
 }
 
-//Ham sap xep
+// Ham sap xep
 void sapXepGPAGiamDan(DanhSachSinhVien *list) {
     for (int i = 0; i < list->size - 1; i++) {
         for (int j = i + 1; j < list->size; j++) {
