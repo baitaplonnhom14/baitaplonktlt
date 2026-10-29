@@ -170,7 +170,7 @@ void suaThongTinSinhVien(SinhVien ds[], int n) {
 // ==========================================================
 // PHAN CUA NGUYEN NGOC THUY: Ham xoa va ham sap xep
 // ==========================================================
-/ Ham xoa 
+// Ham xoa 
 void xoaSinhVien(DanhSachSinhVien *list) {
     char maXoa[20]; 
     int vt = -1;
