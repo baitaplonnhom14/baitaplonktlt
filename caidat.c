@@ -1,3 +1,6 @@
+// ==========================================================
+// PHAN CUA PHAM THAO VY: Ham nhap/xuat va quan li bo nho
+// ==========================================================
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
