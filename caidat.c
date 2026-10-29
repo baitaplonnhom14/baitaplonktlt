@@ -88,8 +88,8 @@ void find_student_by_name(SinhVien *ds, int n, char tuKhoa[]) {
     printf("\n--- KET QUA TIM KIEM THEO TEN (%s) ---\n", tuKhoa);
     
     for (int i = 0; i < n; i++) {
-        // strstr kiểm tra xem tuKhoa có xuất hiện trong ds[i].hoTen hay không
-        if (strstr(ds[i].hoTen, tuKhoa) != NULL) {
+       // Dùng strcasestr nếu muốn tìm kiếm không phân biệt hoa/thường (strstr sẽ ko phân biệt dc)
+        if (strcasestr(ds[i].hoTen, tuKhoa) != NULL) {
             printf("Ma SV: %s | Ho ten: %s | Diem QT: %.2f | Diem thi: %.2f\n",
                    ds[i].maSV, ds[i].hoTen, ds[i].diemQuaTrinh, ds[i].diemThi);
             dem++;
