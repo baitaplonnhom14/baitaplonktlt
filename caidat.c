@@ -77,8 +77,9 @@ SinhVien inputOneStudent(DanhSachSinhVien *list) {
         }
     } while (1);
 
-   
+   tinhGpaVaXeoLoai(&sv);
     return sv;
+}
 // ==========================================================
 // PHAN CUA NGUYEN Chi Bao: Ham tim kiem theo ten sinh vien
 // ==========================================================
@@ -234,5 +235,4 @@ void tinhGpaVaXepLoai(SinhVien *sv) {
     } else {
         strcpy(sv->diemChu, "F");
     }
-    return 0;
 }
