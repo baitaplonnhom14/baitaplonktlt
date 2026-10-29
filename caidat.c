@@ -80,6 +80,27 @@ SinhVien inputOneStudent(DanhSachSinhVien *list) {
    
     return sv;
 // ==========================================================
+// PHAN CUA NGUYEN Chi Bao: Ham tim kiem theo ten sinh vien
+// ==========================================================
+// 2. Hàm find_student_by_name(): Tìm kiếm theo chuỗi Họ tên (dùng hàm strstr)
+void find_student_by_name(SinhVien *ds, int n, char tuKhoa[]) {
+    int dem = 0;
+    printf("\n--- KET QUA TIM KIEM THEO TEN (%s) ---\n", tuKhoa);
+    
+    for (int i = 0; i < n; i++) {
+        // strstr kiểm tra xem tuKhoa có xuất hiện trong ds[i].hoTen hay không
+        if (strstr(ds[i].hoTen, tuKhoa) != NULL) {
+            printf("Ma SV: %s | Ho ten: %s | Diem QT: %.2f | Diem thi: %.2f\n",
+                   ds[i].maSV, ds[i].hoTen, ds[i].diemQuaTrinh, ds[i].diemThi);
+            dem++;
+        }
+    }
+    
+    if (dem == 0) {
+        printf("Khong tim thay sinh vien nao phu hop!\n");
+    }
+}
+// ==========================================================
 // PHAN CUA NGUYEN NGOC THUY: Ham xoa va ham sap xep
 // ==========================================================
 / Ham xoa 
