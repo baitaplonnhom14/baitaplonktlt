@@ -25,12 +25,17 @@ typedef struct DanhSachSinhVien {
     int size;          
 } DanhSachSinhVien;
 // Khai khai bao ham nhap, xuat va bo nho
-void initlist(DanhSachSinhVien *dsList, int initial_capacity); 
-void freelist(DanhSachSinhVien *dsList);
 void clearInputBuffer();
 void inputString(char *buffer, int length);
+void initList(DanhSachSinhVien *list, int initialCapacity);
+void freeList(DanhSachSinhVien *list);
+void tinhGpaVaXepLoai(SinhVien *sv);
 SinhVien inputOneStudent(DanhSachSinhVien *list);
 void addStudent(DanhSachSinhVien *list, SinhVien sv);
 void printStudentList(DanhSachSinhVien list);
-
+void find_student_by_name(DanhSachSinhVien list, char tuKhoa[]);
+void suaThongTinSinhVien(DanhSachSinhVien *list);
+void xoaSinhVien(DanhSachSinhVien *list);
+void sapXepGPAGiamDan(DanhSachSinhVien *list);
+void displayMenu();
 #endif
