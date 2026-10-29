@@ -100,6 +100,72 @@ void find_student_by_name(SinhVien *ds, int n, char tuKhoa[]) {
         printf("Khong tim thay sinh vien nao phu hop!\n");
     }
 }
+void suaThongTinSinhVien(SinhVien ds[], int n) {
+    char maTimKiem[50];
+    int timThay = -1;
+
+    printf("\n--- SUA THONG TIN SINH VIEN ---\n");
+    printf("Nhap Ma SV cua sinh vien can sua: ");
+    
+    // Xoa bo dem neu truoc do co dung scanf
+    
+    // Nhap ma sinh vien can tim
+    fgets(maTimKiem, sizeof(maTimKiem), stdin);
+    maTimKiem[strcspn(maTimKiem, "\n")] = 0; 
+    // Duyet mang tim kiem theo Ma SV
+    for (int i = 0; i < n; i++) {
+        if (strcmp(ds[i].maSV, maTimKiem) == 0) {
+            timThay = i;
+            break; // Tim thay thi thoat vong lap
+        }
+    }
+
+    // Neu khong tim thay
+    if (timThay == -1) {
+        printf("Khong tim thay sinh vien co Ma SV la: %s\n", maTimKiem);
+        return;
+    }
+
+    // Hien thi thong tin cu
+    printf("\nDa tim thay sinh vien!\n");
+    printf("Thong tin hien tai -> Ma SV: %s | Ho ten: %s | Diem GK: %.2f | Diem CK: %.2f\n",
+           ds[timThay].maSV, ds[timThay].hoTen, 
+           ds[timThay].diemGK, ds[timThay].diemCK);
+
+    // Nhap thong tin moi
+    printf("\n--- NHAP THONG TIN MOI CHO SINH VIEN ---\n");
+    
+    printf("Nhap Ho va Ten moi: ");
+    fgets(ds[timThay].hoTen, sizeof(ds[timThay].hoTen), stdin);
+    ds[timThay].hoTen[strcspn(ds[timThay].hoTen, "\n")] = 0; // Xoa ky tu '\n'
+
+    // Nhap diem giua ky
+    do {
+        printf("Nhap Diem Giua Ky moi (0 - 10): ");
+        scanf("%f", &ds[timThay].diemGK);
+        if (ds[timThay].diemGK < 0 || ds[timThay].diemGK > 10) {
+            printf("Diem khong hop le! Vui long nhap lai.\n");
+        }
+    } while (ds[timThay].diemGK < 0 || ds[timThay].diemGK > 10);
+
+    // Nhap diem cuoi ky
+    do {
+        printf("Nhap Diem Cuoi Ky moi (0 - 10): ");
+        scanf("%f", &ds[timThay].diemCK);
+        if (ds[timThay].diemCK < 0 || ds[timThay].diemCK > 10) {
+            printf("Diem khong hop le! Vui long nhap lai.\n");
+        }
+    } while (ds[timThay].diemCK < 0 || ds[timThay].diemCK > 10);
+
+    // Xoa bo dem sau khi dung scanf de tranh bi troi lenh o vong sau (neu co)
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF);
+
+    // Tu dong tinh lai GPA va Xep loai 
+    tinhGpaVaXepLoai(&ds[timThay]);
+
+    printf("Sua thong tin sinh vien thanh cong!\n");
+}
 // ==========================================================
 // PHAN CUA NGUYEN NGOC THUY: Ham xoa va ham sap xep
 // ==========================================================
