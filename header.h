@@ -1,3 +1,6 @@
+// ==========================================================
+// PHAN CUA PHAM THAO VY: Khai bao Struct va Prototype
+// ==========================================================
 #ifndef STUDENT_H
 #define STUDENT_H
 #include <stdio.h>
