@@ -104,27 +104,27 @@ void find_student_by_name(SinhVien *ds, int n, char tuKhoa[]) {
 // PHAN CUA NGUYEN NGOC THUY: Ham xoa va ham sap xep
 // ==========================================================
 / Ham xoa 
-void xoaSinhVien(struct SinhVien danhSach[], int *n) {
+void xoaSinhVien(DanhSachSinhVien *list) {
     char maXoa[20]; int vt = -1;
     printf("Nhap ma can xoa: "); scanf("%s", maXoa);
-    for (int i = 0; i < *n; i++) {
-        if (strcmp(danhSach[i].maSV, maXoa) == 0) { vt = i; break; }
+    for (int i = 0; i < list->size; i++) {
+        if (strcmp(list->data[i].maSV, maXoa) == 0) { vt = i; break; }
     }
     if (vt == -1) printf("Khong tim thay!\n");
     else {
-        for (int i = vt; i < *n - 1; i++) danhSach[i] = danhSach[i + 1];
+        for (int i = vt; i < list->size - 1; i++) danhSach[i] = danhSach[i + 1];
         (*n)--; printf("Xoa thanh cong!\n");
     }
 }
 
 //Ham sap xep
-void sapXepGPAGiamDan(struct SinhVien danhSach[], int n) {
-    for (int i = 0; i < n - 1; i++) {
-        for (int j = i + 1; j < n; j++) {
-            if (danhSach[i].gpa < danhSach[j].gpa) {
-                struct SinhVien temp = danhSach[i];
-                danhSach[i] = danhSach[j];
-                danhSach[j] = temp;
+void sapXepGPAGiamDan(DanhSachSinhVien *list) {
+    for (int i = 0; i < list->size - 1; i++) {
+        for (int j = i + 1; j < list->size; j++) {
+            if (list->data[i].gpa < list->data[j].gpa) {
+               SinhVien temp = list->data[i];
+               list->data[i] = list->data[j];
+               list->data[j] = temp;
             }
         }
     }
